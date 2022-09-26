@@ -1,0 +1,17 @@
+<div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
+
+  <tbody>
+    <% @books.each do |book| %>
+  <tr>
+   <td><%= book.title %></td>
+   <td><%= book.body %></td>
+  <%= link_to  edit_user_path(current_user.id), class:"btn btn-sm btn-success" %>
+  <% if book.user == current_user %>
+    <%= link_to "削除", book_path(book), method: :delete %>
+  <% end %>
+
+
+<%= render 'books/list', books: @books ,user: @user ,book: Book.new  %>
+
+
