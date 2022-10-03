@@ -31,8 +31,7 @@ before_action :correct_user, only: [:edit, :update]
   end
 
   def correct_user
-    @book = Book.find(params[:id])
-    @user = @book.user
+    @user = User.find(params[:id])
     redirect_to(user_path) unless @user == current_user
   end
 end

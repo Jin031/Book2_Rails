@@ -10,9 +10,13 @@
     </tr>
   </thead>
   <tbody>
-      <td><%= image_tag @user.get_profile_image(100, 100) %></td>
-      <td><%= @user.name %></td>
-      <td><%= link_to "show", "/users/#{@user.id}" %><td>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= image_tag user.get_profile_image(100, 100) %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to "Show", "/users/#{user.id}" %><td>
+    </tr>
+    <% end %>
   </tbody>
  </table>
 </div>

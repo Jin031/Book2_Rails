@@ -22,7 +22,7 @@
            <% if user_signed_in? %>
 
          <li>
-           <%= link_to root_path, class:"nav-link text-light" do %>
+           <%= link_to user_path(current_user), class:"nav-link text-light" do %>
               <i class="fas fa-home"></i>
               Home
               <% end %>
@@ -37,13 +37,13 @@
           <li>
             <%= link_to books_path, class:"nav-link text-light" do %>
             <i class="fas fa-book-open"></i>
-            Book
+            Books
              <% end %>
           </li>
           <li>
-          <%= link_to destroy_user_session_path, class:"nav-link text-light" do %>
-    　　　　　　<i class="fas fa-sign-out-alt"></i>
-    　　　　　　  Log out
+          <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-light" do %>
+           <i class="fas fa-sign-out-alt"></i>
+            Log out
              <% end %>
           </li>
           <% else %>
@@ -66,8 +66,8 @@
               <% end %>
           </li>
           <li>
-           <%= link_to new_user_registration_path, class:"nav-link text-light" do %>
-          <i class="fas fa-sign-in-alt"></i>
+           <%= link_to new_user_session_path, class:"nav-link text-light" do %>
+             <i class="fas fa-sign-in-alt"></i>
             Log in
             <% end %>
           </li>
@@ -78,7 +78,9 @@
   </nav>
 </header>
 <main>
-<%= yield %>
+ <div class="container">
+ <%= yield %>
+ </div>
 </main>
     <footer>
   <div class="container mt-5">
